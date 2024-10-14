@@ -1,0 +1,23 @@
+<div [class]="classNames.container + ' mt-6 lg:mt-12'">
+    <div class="flex gap-12">
+        <div class="w-[320px] rounded-2xl border border-fuchsia-200 py-12 px-4 shadow">
+            <div class="text-center space-y-4">
+                <img src="/images/avatar/1.jpg"
+                    class="w-24 aspect-square rounded-full mx-auto object-cover object-center" />
+                <div class="text-center">
+                    <span>Dream Panda</span>
+                </div>
+            </div>
+            <div class="mt-8 space-y-2">
+                <a *ngFor="let item of profileConfig"
+                    class="rounded-2xl w-full px-4 py-2 border border-fuchsia-300 hover:bg-fuchsia-100 focus:border-fuchsia-500 cursor-pointer flex justify-start items-center gap-4"
+                    tabindex="1" [routerLink]="item.path">
+                    <i [class]="item.icon + ' w-4'"></i> <span>{{ item.title }}</span>
+                </a>
+            </div>
+        </div>
+        <div>
+            <router-outlet />
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<div
+    class="rounded-2xl p-4 border-fuchsia-400 hover:bg-fuchsia-200 bg-gradient-to-tr from-fuchsia-400 mb-4 shadow shadow-fuchsia-500">
+    <div class="flex max-lg:flex-col justify-between gap-8">
+        <img src="/images/cover/2.jpg" class="max-lg:w-full w-48 aspect-video object-cover object-center rounded-lg"
+            alt="IMG" />
+        <div class="flex flex-col justify-between flex-grow">
+            <div class="space-y-2">
+                <h4 class="text-lg">{{ data?.title }}</h4>
+                <!-- DESCRIPTION -->
+                <div class="max-h-32 overflow-clip">
+                    {{ data?.description }}
+                </div>
+            </div>
+            <hr class="my-2" />
+            <div class="flex justify-between items-center">
+                <a class="flex justify-end items-center gap-2 cursor-pointer">
+                    Go To Detail <i class="fa fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

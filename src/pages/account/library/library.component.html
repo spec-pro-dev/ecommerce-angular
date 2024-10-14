@@ -1,0 +1,47 @@
+<div class="">
+    <div class="flex justify-between items-center">
+        <h2 class="text-lg">Library</h2>
+        <a [class]="classNames.btn + ' w-auto px-8 text-sm'" routerLink="/account/selling/new">Browse Products</a>
+    </div>
+    <hr class="my-2" />
+    <!-- PRODUCT LIST -->
+    <div class="mt-4">
+        <div class="flex justify-between items-center">
+            <div class="relative">
+                <input type="search" [class]="classNames.input" placeholder="Search" />
+            </div>
+            <div class="flex justify-end items-center gap-3">
+                <select [class]="classNames.input">
+                    <option value="">Type</option>
+                </select>
+                <select [class]="classNames.input">
+                    <option value="">Price</option>
+                </select>
+                <button [class]="classNames.btn + ' rounded-lg px-2'">
+                    <i class="fa fa-list"></i>
+                </button>
+                <button [class]="classNames.btn + ' rounded-lg px-2'">
+                    <i class="fa fa-table"></i>
+                </button>
+            </div>
+        </div>
+        <div class="mt-4">
+            <ng-container *ngFor="let i of products">
+                <app-product />
+            </ng-container>
+        </div>
+        <div class="mt-8">
+            <div class="flex justify-between items-center">
+                <div class="w-36">
+                    <select [class]="classNames.input">
+                        <option>10</option>
+                        <option>20</option>
+                        <option>30</option>
+                        <option>50</option>
+                    </select>
+                </div>
+                <Pagination />
+            </div>
+        </div>
+    </div>
+</div>

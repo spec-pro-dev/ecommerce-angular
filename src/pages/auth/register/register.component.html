@@ -1,0 +1,63 @@
+<div class="container p-12 mx-auto ">
+    <!-- LOGO -->
+    <a routerLink="/">
+        <img src="/logo/logo.png" class="w-16" />
+    </a>
+    <!-- LOGIN SECTION -->
+    <section class="mt-10 max-w-xl mx-auto border shadow rounded-3xl p-10">
+        <h1 [class]="'text-4xl font-bold text-center ' + classNames.text">REGISTER</h1>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="space-y-6 mt-6">
+            <!-- ALERT MESSAGE -->
+            <Notification [show]="showMessage" [type]="type" [message]="message" (onClose)="onClose()" />
+            <!-- ALERT MESSAGE -->
+            <div class="space-y-2">
+                <label for="name">Name</label>
+                <input [formControlName]="'name'" [class]="classNames.input" type="text" placeholder="Your Name">
+                <div class="text-red-400" *ngIf="registerForm.get('name').touched && registerForm.get('name').invalid">
+                    <small *ngIf="registerForm.get('name').errors?.required">Name is required.</small>
+                    <small *ngIf="registerForm.get('name').errors?.minlength">Name must be at least 3 characters
+                        long.</small>
+                </div>
+            </div>
+
+            <div class="space-y-2">
+                <label for="email">Email</label>
+                <input [formControlName]="'email'" [class]="classNames.input" type="email" placeholder="Your Email">
+                <div class="text-red-400"
+                    *ngIf="registerForm.get('email').touched && registerForm.get('email').invalid">
+                    <small *ngIf="registerForm.get('email').errors?.required">Email is required.</small>
+                    <small *ngIf="registerForm.get('email').errors?.email">Enter a valid email.</small>
+                </div>
+            </div>
+
+            <div class="space-y-2">
+                <label for="password">Password</label>
+                <div class="relative">
+                    <input [formControlName]="'password'" [class]="classNames.input" [type]="show ? 'text' : 'password'"
+                        placeholder="Your Password">
+                    <button type="button" class="absolute top-0 right-0 h-full w-12 border-l border-fuchsia-500"
+                        (click)="show = !show">
+                        <i [class]="show ? 'fa fa-eye-slash' : 'fa fa-eye'"></i>
+                    </button>
+                </div>
+                <div class="text-red-400"
+                    *ngIf="registerForm.get('password').touched && registerForm.get('password').invalid">
+                    <small *ngIf="registerForm.get('password').errors?.required">Password is required.</small>
+                    <small *ngIf="registerForm.get('password').errors?.minlength">
+                        Password must be at least 6 characters long.
+                    </small>
+                </div>
+            </div>
+
+            <button type="submit" [disabled]="isSubmit" [class]="classNames.btn">
+                <i class="fa fa-user-plus"></i> Register
+            </button>
+
+            <div class="text-center">
+                Don’t you have an account? <a [class]="classNames.text" routerLink="/login">Login</a>
+            </div>
+        </form>
+
+    </section>
+    <!-- LOGIN SECTION END -->
+</div>

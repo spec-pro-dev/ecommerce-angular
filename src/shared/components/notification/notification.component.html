@@ -1,0 +1,7 @@
+<div *ngIf="show" class="flex justify-between items-start rounded-xl shadow py-3 px-4" [class]="setting().className">
+    <div class="flex justify-start items-center gap-2">
+        <i class="text-lg" [class]="setting().icon"></i>
+        {{ message }}
+    </div>
+    <button type="button" (click)="onClose.emit()"><i class="fa fa-times"></i></button>
+</div>
